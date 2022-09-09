@@ -1,6 +1,7 @@
 package com.example.reader;
 
 import com.example.enums.StudyProfile;
+import com.example.model.Student;
 import com.example.model.University;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -55,5 +56,35 @@ public class XlsxReader {
         }
 
         return universities;
+    }
+
+    // Read xlsx - File and returned a list of Students
+    public List<Student> readStudent() {
+        List<Student> students = new ArrayList<>();
+
+        try(InputStream inputStream = new FileInputStream(this.filePath)) {
+            Workbook wb = WorkbookFactory.create(inputStream);
+            Sheet sheet = wb.getSheet("Студенты");
+
+            Iterator<Row> rowIter = sheet.iterator();
+            rowIter.next();  // ignore headline
+
+            while(rowIter.hasNext()) {
+                Row row = rowIter.next();
+                Student student = new Student();
+
+                student.setUniversityId(row.getCell(0).getStringCellValue());
+                student.setFullName(row.getCell(1).getStringCellValue());
+                student.setCurrentCourseNumber((int) row.getCell(2).getNumericCellValue());
+                student.setAvgExamScore((float) row.getCell(3).getNumericCellValue());
+
+                students.add(student);
+            }
+        } catch (IOException e) {
+            System.err.println("Problem with file reading.");
+            throw new RuntimeException(e);
+        }
+
+        return students;
     }
 }
