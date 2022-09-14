@@ -2,7 +2,7 @@ package com.example.compare.students;
 
 import com.example.model.Student;
 
-public class CompareStrudentsByCurrentCourseNumber implements CompareStrudents {
+public class CompareStrudentsByCurrentCourseNumber implements CompareStudents {
 
     @Override
     public int compare(Student student1, Student student2) {
