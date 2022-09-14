@@ -23,7 +23,7 @@ public class UtilComparator {
                 compareStudents = new CompareStudentsByAvgExamScoreReverse();
                 break;
             case BY_CURRENT_COURSE_NUMBER:
-                compareStudents = new CompareStrudentsByCurrentCourseNumber();
+                compareStudents = new CompareStudentsByCurrentCourseNumber();
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + studentComparator);
