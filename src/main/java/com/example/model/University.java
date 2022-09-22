@@ -3,10 +3,15 @@ package com.example.model;
 import com.example.enums.StudyProfile;
 
 public class University {
+    @SerializedName("id")
     private String id;
+    @SerializedName("name")
     private String fullName;
+    @SerializedName("short_name")
     private String shortName;
+    @SerializedName("year_of_foundation")
     private int yearOfFoundation;
+    @SerializedName("profile")
     private StudyProfile mainProfile;
 
     public University(){}

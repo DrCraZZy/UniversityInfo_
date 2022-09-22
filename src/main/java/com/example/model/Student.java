@@ -1,9 +1,16 @@
 package com.example.model;
 
 public class Student {
+    @SerializedName("name")
     private String fullName;
+
+    @SerializedName("university")
     private String universityId;
+
+    @SerializedName("course_number")
     private int currentCourseNumber;
+
+    @SerializedName("avg_score")
     private float avgExamScore;
 
     public Student() {
@@ -50,11 +57,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "fullName='" + fullName + '\'' +
-                ", universityId='" + universityId + '\'' +
-                ", currentCourseNumber=" + currentCourseNumber +
-                ", avgExamScore=" + avgExamScore +
-                '}';
+        return "fullName: " + fullName +
+                ", universityId: " + universityId +
+                ", currentCourseNumber: " + currentCourseNumber +
+                ", avgExamScore: " + avgExamScore;
     }
 }
