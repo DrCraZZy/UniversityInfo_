@@ -5,7 +5,7 @@ import com.example.compare.universities.*;
 import com.example.enums.StudentComparator;
 import com.example.enums.UniversityComparator;
 
-public class UtilComparator {
+public final class UtilComparator {
     public static CompareStudents getStudentComparator(StudentComparator studentComparator){
         CompareStudents compareStudents;
 
