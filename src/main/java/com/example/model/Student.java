@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Student {
     @SerializedName("name")
     private String fullName;
