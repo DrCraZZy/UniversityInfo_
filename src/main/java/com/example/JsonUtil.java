@@ -4,6 +4,7 @@ import com.example.model.Student;
 import com.example.model.University;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public final class JsonUtil {
 
     public static List<Student> StudentsFromJson(String jsonStudents){
         Gson gson = new Gson();
-        return (List<Student>) gson.fromJson(jsonStudents, Student.class);
+        return gson.fromJson(jsonStudents, new TypeToken<List<Student>>(){}.getType());
     }
 
     public static String UniversityToJson(University university) {
@@ -48,6 +49,6 @@ public final class JsonUtil {
 
     public static List<University> UniversitiesFromJson(String jsonUniversities){
         Gson gson = new Gson();
-        return (List<University>) gson.fromJson(jsonUniversities, University.class);
+        return gson.fromJson(jsonUniversities, new TypeToken<List<University>>(){}.getType());
     }
 }
