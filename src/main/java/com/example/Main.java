@@ -41,8 +41,8 @@ public class Main
         // Check ser/deser for single objects
         universities.
                 stream().
-                map(u -> JsonUtil.UniversityToJson(u)).
-                map(ju -> JsonUtil.UniversityFromJson(ju)).
+                map(JsonUtil::UniversityToJson).
+                map(JsonUtil::UniversityFromJson).
                 forEach(System.out::println);
 
         System.out.println("--------------------------------------------------------");
@@ -66,8 +66,8 @@ public class Main
         // Check ser/deser for single objects
         students.
                 stream().
-                map(s -> JsonUtil.StudentToJson(s)).
-                map(js -> JsonUtil.StudentFromJson(js)).
+                map(JsonUtil::StudentToJson).
+                map(JsonUtil::StudentFromJson).
                 forEach(System.out::println);
     }
 }
