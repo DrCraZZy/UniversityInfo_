@@ -2,6 +2,8 @@ package com.example;
 
 import com.example.model.Student;
 import com.example.model.University;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
@@ -9,43 +11,43 @@ import java.util.List;
 
 public final class JsonUtil {
 
-    public static void StudentToJson(Student student) {
+    public static String StudentToJson(Student student) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
+        return gson.toJson(student);
     }
 
-    public static Student StudentFromJson() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return null;
+    public static Student StudentFromJson(String jsonString) {
+        Gson gson = new Gson();
+        return gson.fromJson(jsonString, Student.class);
     }
 
-    public static void StudentsToJson(List<Student> students){
+    public static String StudentsToJson(List<Student> students){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
+        return gson.toJson(students);
     }
 
-    public List<Student> StudentsFromJson(){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return null;
+    public List<Student> StudentsFromJson(String jsonStudents){
+        Gson gson = new Gson();
+        return (List<Student>) gson.fromJson(jsonStudents, Student.class);
     }
 
-    public static void UniversityToJson(University university) {
+    public static String UniversityToJson(University university) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
+        return gson.toJson(university);
     }
 
-    public static University UniversityFromJson() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return null;
+    public static University UniversityFromJson(String jsonUniversity) {
+        Gson gson = new Gson();
+        return gson.fromJson(jsonUniversity, University.class);
     }
 
-    public static void UniversitiesToJson(List<University> universities){
+    public static String UniversitiesToJson(List<University> universities){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
+        return gson.toJson(universities);
     }
 
-    public List<University> UniversitiesFromJson(){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return null;
+    public List<University> UniversitiesFromJson(String jsonUniversities){
+        Gson gson = new Gson();
+        return (List<University>) gson.fromJson(jsonUniversities, University.class);
     }
 }
