@@ -26,7 +26,7 @@ public final class JsonUtil {
         return gson.toJson(students);
     }
 
-    public List<Student> StudentsFromJson(String jsonStudents){
+    public static List<Student> StudentsFromJson(String jsonStudents){
         Gson gson = new Gson();
         return (List<Student>) gson.fromJson(jsonStudents, Student.class);
     }
@@ -46,7 +46,7 @@ public final class JsonUtil {
         return gson.toJson(universities);
     }
 
-    public List<University> UniversitiesFromJson(String jsonUniversities){
+    public static List<University> UniversitiesFromJson(String jsonUniversities){
         Gson gson = new Gson();
         return (List<University>) gson.fromJson(jsonUniversities, University.class);
     }
