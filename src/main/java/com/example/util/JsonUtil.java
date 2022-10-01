@@ -1,4 +1,4 @@
-package com.example;
+package com.example.util;
 
 import com.example.model.Student;
 import com.example.model.University;
