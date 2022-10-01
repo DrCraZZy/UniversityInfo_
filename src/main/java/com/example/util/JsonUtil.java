@@ -1,5 +1,6 @@
 package com.example.util;
 
+import com.example.model.Statistic;
 import com.example.model.Student;
 import com.example.model.University;
 import com.google.gson.Gson;
@@ -12,6 +13,7 @@ import java.util.List;
 
 public final class JsonUtil {
 
+    // student(s) to/from json methods
     public static String StudentToJson(Student student) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(student);
@@ -32,6 +34,7 @@ public final class JsonUtil {
         return gson.fromJson(jsonStudents, new TypeToken<List<Student>>(){}.getType());
     }
 
+    // university(s) to/from json methods
     public static String UniversityToJson(University university) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(university);
@@ -51,4 +54,16 @@ public final class JsonUtil {
         Gson gson = new Gson();
         return gson.fromJson(jsonUniversities, new TypeToken<List<University>>(){}.getType());
     }
+
+    // Statistic(s) to/from json methods
+    public static String StatisticToJson(Statistic statistic) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(statistic);
+    }
+
+    public static Statistic StatisticFromJson(String jsonStatistic) {
+        Gson gson = new Gson();
+        return gson.fromJson(jsonStatistic, Statistic.class);
+    }
+
 }
