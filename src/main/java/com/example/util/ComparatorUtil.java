@@ -1,11 +1,10 @@
-package com.example.compare;
+package com.example.util;
 
-import com.example.compare.students.*;
-import com.example.compare.universities.*;
+import com.example.comparator.*;
 import com.example.enums.StudentComparator;
 import com.example.enums.UniversityComparator;
 
-public final class UtilComparator {
+public final class ComparatorUtil {
     public static CompareStudents getStudentComparator(StudentComparator studentComparator){
         CompareStudents compareStudents;
 

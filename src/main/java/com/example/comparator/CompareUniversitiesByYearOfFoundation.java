@@ -1,4 +1,4 @@
-package com.example.compare.universities;
+package com.example.comparator;
 
 import com.example.model.University;
 

@@ -1,4 +1,4 @@
-package com.example.compare.students;
+package com.example.comparator;
 
 import com.example.model.Student;
 import org.apache.commons.lang3.StringUtils;
