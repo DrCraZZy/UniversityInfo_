@@ -1,4 +1,4 @@
-package com.example.reader;
+package com.example.io;
 
 import com.example.enums.StudyProfile;
 import com.example.model.Student;
