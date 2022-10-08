@@ -8,9 +8,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class XlsWriter {
 
+    private static final Logger LOGGER = Logger.getLogger(XlsWriter.class.getName());
     private final String filePath;
 
     public XlsWriter(String filePath) {
@@ -66,9 +69,11 @@ public class XlsWriter {
             }
 
             workbook.write(outputStream);
+            LOGGER.log(Level.INFO,
+                    "Statistic was exported to " + this.filePath + " (" + statistics.size() + " Elements)");
 
         } catch (IOException e) {
-            System.err.println("There is a problem by write statistics to the file" + this.filePath);
+            LOGGER.log(Level.SEVERE, "There is a problem by write statistics to the file" + this.filePath, e);
             throw new RuntimeException(e);
         }
     }

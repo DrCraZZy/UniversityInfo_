@@ -14,11 +14,15 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
 * class for reading xlsx files and extract information about Universities and Students
  */
 public class XlsxReader {
+
+    private static final Logger LOGGER = Logger.getLogger(XlsxReader.class.getName());
 
     private final String filePath;
 
@@ -49,8 +53,11 @@ public class XlsxReader {
 
                 universities.add(university);
             }
+
+            LOGGER.log(Level.INFO, universities.size() + " universities were imported from " + this.filePath);
+
         } catch (IOException e) {
-            System.err.println("Problem with file reading.");
+            LOGGER.log(Level.SEVERE, "It is not possible to read " + this.filePath, e);
             throw new RuntimeException(e);
         }
 
@@ -79,8 +86,11 @@ public class XlsxReader {
 
                 students.add(student);
             }
+
+            LOGGER.log(Level.INFO, students.size() + " students were imported from " + this.filePath);
+
         } catch (IOException e) {
-            System.err.println("Problem with file reading.");
+            LOGGER.log(Level.SEVERE, "It is not possible to read " + this.filePath, e);
             throw new RuntimeException(e);
         }
 

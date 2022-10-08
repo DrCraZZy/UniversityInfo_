@@ -4,7 +4,12 @@ import com.example.comparator.*;
 import com.example.enums.StudentComparator;
 import com.example.enums.UniversityComparator;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public final class ComparatorUtil {
+
+    private static final Logger LOGGER = Logger.getLogger(ComparatorUtil.class.getName());
     public static CompareStudents getStudentComparator(StudentComparator studentComparator){
         CompareStudents compareStudents;
 
@@ -25,6 +30,7 @@ public final class ComparatorUtil {
                 compareStudents = new CompareStudentsByCurrentCourseNumber();
                 break;
             default:
+                LOGGER.log(Level.SEVERE, "Unexpected value: '" + studentComparator + "'");
                 throw new IllegalStateException("Unexpected value: " + studentComparator);
         }
 
@@ -51,6 +57,7 @@ public final class ComparatorUtil {
                 compareUniversities = new CompareUniversitiesByYearOfFoundation();
                 break;
             default:
+                LOGGER.log(Level.SEVERE, "Unexpected value: '" + universityComparator + "'");
                 throw new IllegalStateException("Unexpected value: " + universityComparator);
         }
 
