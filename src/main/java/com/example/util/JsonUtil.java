@@ -1,69 +1,16 @@
 package com.example.util;
 
-import com.example.model.Statistic;
-import com.example.model.Student;
-import com.example.model.University;
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-// https://zetcode.com/java/gson/
-
+@NoArgsConstructor
 public final class JsonUtil {
 
-    // student(s) to/from json methods
-    public static String StudentToJson(Student student) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(student);
+    public static String writeListToJson(List<?> list) {
+        return new GsonBuilder().setPrettyPrinting().create().toJson(list);
     }
 
-    public static Student StudentFromJson(String jsonString) {
-        Gson gson = new Gson();
-        return gson.fromJson(jsonString, Student.class);
-    }
-
-    public static String StudentsToJson(List<Student> students){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(students);
-    }
-
-    public static List<Student> StudentsFromJson(String jsonStudents){
-        Gson gson = new Gson();
-        return gson.fromJson(jsonStudents, new TypeToken<List<Student>>(){}.getType());
-    }
-
-    // university(s) to/from json methods
-    public static String UniversityToJson(University university) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(university);
-    }
-
-    public static University UniversityFromJson(String jsonUniversity) {
-        Gson gson = new Gson();
-        return gson.fromJson(jsonUniversity, University.class);
-    }
-
-    public static String UniversitiesToJson(List<University> universities){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(universities);
-    }
-
-    public static List<University> UniversitiesFromJson(String jsonUniversities){
-        Gson gson = new Gson();
-        return gson.fromJson(jsonUniversities, new TypeToken<List<University>>(){}.getType());
-    }
-
-    // Statistic(s) to/from json methods
-    public static String StatisticToJson(Statistic statistic) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(statistic);
-    }
-
-    public static Statistic StatisticFromJson(String jsonStatistic) {
-        Gson gson = new Gson();
-        return gson.fromJson(jsonStatistic, Statistic.class);
-    }
 
 }
