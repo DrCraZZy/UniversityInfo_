@@ -18,10 +18,10 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Statistic {
 
-    @XmlElement(name = "Profile")
+    @XmlElement(name = "universityProfile")
     private StudyProfile profile;
 
-    @XmlElement(name = "avgExamScore")
+    @XmlElement(name = "avgScore")
     private float avgExamScore;
 
     @XmlTransient
