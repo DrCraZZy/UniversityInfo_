@@ -1,6 +1,5 @@
 package com.example.util;
 
-import com.example.Main;
 import com.example.enums.StudyProfile;
 import com.example.model.Statistic;
 import com.example.model.Student;
@@ -8,7 +7,10 @@ import com.example.model.University;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.OptionalDouble;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -60,12 +62,11 @@ public class CreateStatisticsUtil {
                     .mapToDouble(Student::getAvgExamScore)
                     .average();
             avgExamScore
-                    .ifPresentOrElse(
+                    .ifPresent(
                             score -> statistic.setAvgExamScore(
                                     (float) new BigDecimal(score)
                                     .setScale(2, RoundingMode.HALF_UP)
-                                    .doubleValue()),
-                            () -> statistic.setAvgExamScore(0)
+                                    .doubleValue())
                     );
         });
 
