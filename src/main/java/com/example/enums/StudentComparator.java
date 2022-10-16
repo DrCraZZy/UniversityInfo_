@@ -1,9 +1,5 @@
 package com.example.enums;
 
-import com.example.model.Student;
-
-import java.util.Comparator;
-
 public enum StudentComparator {
     BY_NAME,
     BY_CURRENT_COURSE_NUMBER,
