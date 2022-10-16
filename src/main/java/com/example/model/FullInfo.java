@@ -12,26 +12,23 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@Accessors(chain = true)
 @XmlRootElement(name = "root")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class FullInfo {
 
     @XmlElementWrapper(name = "studentsInfo")
     @XmlElement(name = "studentEntry")
-    @Accessors(chain = true)
     private List<Student> studentList;
 
     @XmlElementWrapper(name = "universitiesInfo")
     @XmlElement(name = "universityEntry")
-    @Accessors(chain = true)
     private List<University> universityList;
 
     @XmlElementWrapper(name = "statisticalInfo")
     @XmlElement(name = "statisticsEntry")
-    @Accessors(chain = true)
     private List<Statistic> statisticList;
 
     @XmlElement(name = "processedAt")
-    @Accessors(chain = true)
     private Date processDate;
 }

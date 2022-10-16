@@ -16,27 +16,24 @@ import javax.xml.bind.annotation.XmlTransient;
 @Setter
 @NoArgsConstructor
 @ToString
+@Accessors(chain = true)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Student {
 
     @XmlElement(name = "studentName")
     @SerializedName("name")
-    @Accessors(fluent = true)
     private String fullName;
 
     @XmlElement(name = "university")
     @SerializedName("universityId")
-    @Accessors(fluent = true)
     private String universityId;
 
     @XmlTransient
     @SerializedName("course_number")
-    @Accessors(fluent = true)
     private int currentCourseNumber;
 
     @XmlElement(name = "avgScore")
     @SerializedName("avg_score")
-    @Accessors(fluent = true)
     private float avgExamScore;
 
 }
